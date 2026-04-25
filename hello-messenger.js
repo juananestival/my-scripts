@@ -25,5 +25,11 @@
     };
 
     // 4. Inject it into the body of the website
-    document.body.appendChild(btn);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.appendChild(btn);
+        });
+    } else {
+        document.body.appendChild(btn);
+    }
 })();
